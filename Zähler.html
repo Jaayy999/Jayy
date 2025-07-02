@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zähler</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f5f5f5;
+            color: #33F;
+        }
+        .counter-container {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            width: 300px;
+        }
+        .counter-display {
+            font-size: 3rem;
+            margin: 1rem;
+            font-weight: bold;
+            color: darkblue;
+            transition: transform 0.2s ease, opacity 0.2s ease;
+        }
+        .counter-buttons {
+            font-size: 1rem;
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            margin-top: 1rem;
+        }
+        button {
+            padding: 1rem;
+            border: none;
+            border-radius: 5px;
+            background-color: #33F;
+            color: white;
+            font-size: 1rem;
+        }
+        .increment {
+            background-color: chartreuse;
+            color: white;
+        }
+        .decrement {
+            background-color: red;
+            color: white;
+        }
+        .reset {
+            background-color: lightblue;
+            color: white;
+        }
+        button:hover {
+            opacity: 0.8;
+        }
+        h1 {
+            color: navy;
+        }
+    </style>
+</head>
+<body>
+<div class="counter-container">
+    <h1>Zähler</h1>
+    <div class="counter-display" id="counter">0</div>
+    <div class="counter-buttons">
+        <button class="increment" id="Hoch(+)">+</button>
+        <button class="decrement" id="Runter(-)">-</button>
+        <button class="reset" id="reset">Zurücksetzen</button>
+    </div>
+</div>
+<script>
+    const counterDisplay = document.getElementById('counter');
+    const incrementButton = document.getElementById('Hoch(+)');
+    const decrementButton = document.getElementById('Runter(-)');
+    const resetButton = document.getElementById('reset');
+    let counter = 0;
+
+    incrementButton.addEventListener('click', () => {
+        counter++;
+        updateDisplay();
+        animateCounter();
+    });
+
+    decrementButton.addEventListener('click', () => {
+        counter--;
+        updateDisplay();
+        animateCounter();
+    });
+
+    resetButton.addEventListener('click', () => {
+        counter = 0;
+        updateDisplay();
+        animateCounter();
+    });
+
+    function updateDisplay() {
+        counterDisplay.textContent = counter;
+    }
+function animateCounter() {
+counterDisplay.style.transform = 'scale(1,2)';
+counterDisplay.style.opacity ='0,5';
+setTimeout(() => {
+counterDisplay.style.transform = 'scale(1)';
+counterDisplay.style.opacity = '1';
+}, 200)}
+</script>
+</body>
+</html>
+
+
